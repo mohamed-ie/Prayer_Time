@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.prayertime.R;
 
@@ -29,5 +30,8 @@ public abstract class BaseFragment<B extends ViewDataBinding> extends Fragment {
         return binding.getRoot();
     }
 
+    protected void navigateTo(@IdRes int destinationId){
+        NavHostFragment.findNavController(this).navigate(destinationId);
+    }
 
 }
